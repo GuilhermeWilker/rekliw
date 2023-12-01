@@ -1,0 +1,4 @@
+.env
+app/ignore/
+app/helpers/constants.php
+vendor/

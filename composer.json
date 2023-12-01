@@ -1,0 +1,26 @@
+{
+    "name": "guiga/php-pro",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        },
+        "files": [
+            "app/helpers/constants.php",
+            "app/helpers/functions.php",
+            "app/helpers/redirect.php",
+            "app/core/controller.php",
+            "app/routes/router.php",
+            "app/database/connect.php",
+            "app/database/fetch.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Guilherme Wilker",
+            "email": "wilkerguilherme0@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
