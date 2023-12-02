@@ -10,5 +10,6 @@ return [
     ],
     'POST' => [
         '/login' => 'LoginController@store',
+        '/user/store' => 'UserController@store',
     ],
 ];
