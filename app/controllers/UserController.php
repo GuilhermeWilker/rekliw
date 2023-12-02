@@ -36,6 +36,15 @@ class UserController
             return redirect('/user/create');
         }
 
-        dd($validate);
+        $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
+
+        $created = create('users', $validate);
+        if (!$created) {
+            set_flash_message('message', 'Erro ao criar usuário, tente novamente mais tarde.');
+
+            return redirect('/user/create');
+        }
+
+        return redirect('/');
     }
 }
