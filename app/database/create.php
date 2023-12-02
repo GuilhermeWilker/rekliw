@@ -1,8 +1,12 @@
 <?php
 
-function create($table, $data)
+function create_data(string $table, array $data)
 {
     try {
+        if (!is_arr_associative($data)) {
+            throw new Exception('The array must be associative..');
+        }
+
         $db = connect_database();
 
         $sql = "insert into {$table}(";

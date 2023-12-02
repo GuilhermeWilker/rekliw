@@ -38,7 +38,7 @@ class UserController
 
         $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
 
-        $created = create('users', $validate);
+        $created = create_data('users', $validate);
         if (!$created) {
             set_flash_message('message', 'Erro ao criar usuário, tente novamente mais tarde.');
 
