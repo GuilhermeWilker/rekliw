@@ -9,21 +9,9 @@
 </head>
 <body class="bg-[#232323] text-white">
     <header class="w-full p-5">
-       <div class="flex items-center justify-between">
-            <h3 class="text-3xl font-family-righteous">Guilherme Wilker</h3>
-            <div class="bg-white h-10 w-10 rounded-lg"></div>
-       </div>
-
-       <div>
-            <p class="text-md font-family-righteous">Projeto: Monalisa INC.</p>
-       </div>
-
-       <div class="mt-5">
-            <p class="p-2 text-center text-sm border-2 border-white rounded-md w-1/2 bg-[#363636]">
-                🧑‍🚀 2.596 Clientes
-            </p>
-       </div>
+        <?php require 'partials/header_template.php'; ?>
     </header>
+
     <main class='p-5'>
         <div>
             <?php require VIEWS.$view; ?>
