@@ -8,6 +8,10 @@ class HomeController
     {
         $users = findAll('users');
 
+        delete_data(
+            'users',
+            ['id' => 25]);
+
         return [
             'view' => 'home_template.php',
             'data' => [
