@@ -2,7 +2,18 @@
 
 function routes()
 {
-    return require 'web.php';
+    $routes = require 'web.php';
+
+    $Route = [];
+    foreach ($routes as $route) {
+        $http_method = $route[0];
+        $route_path = $route[1];
+        $controller_instance = $route[2];
+
+        $Route[$http_method][$route_path] = $controller_instance;
+    }
+
+    return $Route;
 }
 
 function exact_uri_path_matches_array_routes($uriPath, $routes)
