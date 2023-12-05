@@ -3,3 +3,130 @@
 .font-family-righteous {
   font-family: "Righteous", sans-serif;
 }
+
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+::-webkit-scrollbar {
+  width: 6px;
+
+  background: #f4f4f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  background: #f4f4f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  appearance: none;
+
+  width: 100%;
+  height: 10px;
+
+  background-color: #dddddd;
+  border-radius: 5px;
+
+  /*  (thumb) */
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+  &::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.slider-value {
+  position: absolute;
+  top: -18px;
+  left: 60%;
+  /* transform: translateX(-50%); */
+  z-index: 1;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.card {
+  min-height: 15em;
+  max-width: 11.5em;
+  min-width: 11.5em;
+
+  border-radius: 1em;
+  padding: 1em;
+
+  background-color: #fff;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  transform: rotate(-6deg);
+
+  &:hover {
+    transform: rotate(0deg);
+  }
+}
+
+.overview-img {
+  width: 100%;
+  height: 12em;
+
+  border-radius: 1em;
+  padding: 1em;
+
+  background-color: #fff;
+}
+
+.comment {
+  border-radius: 4px;
+  border: 1px solid #000;
+  background: #fff;
+  box-shadow: 4px 4px 0px 0px #000;
+}
+
+.reaction-button {
+  border-radius: 4px;
+  background-color: white;
+
+  border: 1px solid #fff;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

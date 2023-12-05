@@ -1,26 +1,34 @@
 {
-    "name": "guiga/php-pro",
-    "autoload": {
-        "psr-4": {
-            "app\\": "app/"
-        },
-        "files": [
-            "app/helpers/constants.php",
-            "app/helpers/functions.php",
-            "app/helpers/redirect.php",
-            "app/core/controller.php",
-            "app/routes/router.php",
-            "app/database/connect.php",
-            "app/database/fetch.php"
-        ]
+  "name": "guiga/php-pro",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
     },
-    "authors": [
-        {
-            "name": "Guilherme Wilker",
-            "email": "wilkerguilherme0@gmail.com"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6"
+    "files": [
+      "app/helpers/constants.php",
+      "app/helpers/functions.php",
+      "app/helpers/redirect.php",
+      "app/helpers/flashMessage.php",
+      "app/helpers/sessions.php",
+      "app/helpers/validate.php",
+      "app/helpers/validations.php",
+      "app/helpers/helpers.php",
+      "app/core/controller.php",
+      "app/routes/router.php",
+      "app/database/connect.php",
+      "app/database/fetch.php",
+      "app/database/update.php",
+      "app/database/delete.php",
+      "app/database/create.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Guilherme Wilker",
+      "email": "wilkerguilherme0@gmail.com"
     }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  }
 }
