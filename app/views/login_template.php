@@ -1,23 +1,28 @@
 
+<div class="flex items-center justify-center my-[45px]">
+    <a href="/">
+        <img src="/assets/imgs/rekliw_logo.png" alt="Rekliw logo">
+    </a>
+</div>
 
+<form action="/login" method="post"> 
 
-<form action="/login" method="post" class="w-30 border-2 border-gray-200 p-4 rounded-lg">
+    <div>
+        <label for="email" class="block text-sm text-gray-500 font-medium py-3">Email</label>
+        <input type="email" name="email" class="w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none">
+    </div>
 
-    <p class="text-center py-3">
+    <div>
+        <label for="password" class="block text-sm text-gray-500 font-medium py-3">Senha</label>
+        <input type="passoword" name="password" class="w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none mb-1">
         <?php echo get_flash_message('message'); ?>
+    </div>
+
+    <p class="my-2 text-gray-300 text-sm">
+        Não possui conta? 
+        <a href="/user/create" class="underline"> faça seu cadastro clicando aqui!</a>
     </p>
+    
 
-    <div class="my-2">
-        <label for="email" class="block font-bold text-sm pb-2">Email:</label>
-        <input class="w-full p-3 text-sm border-2 text-black" name="email" type="text">
-     
-    </div>
-
-    <div class="my-2">
-        <label for="password" class="block font-bold text-sm pb-2">Password:</label>
-        <input class="w-full p-3 text-sm border-2 text-black" name="password" type="text">
-        
-    </div>
-
-    <button type="submit" class="w-full p-4 bg-gray-100 text-black">Enviar</button>
+    <button type="submit" class="rounded-sm bg-[#2957cd] border-2 border-[#d9d9d9] text-white p-2 w-full my-6 font-bold hover:bg-[#3768E5]">Login</button>
 </form>

@@ -1,3 +1,7 @@
+<header class="w-full p-5">
+        <?php require 'partials/header_template.php'; ?>
+</header>
+
 <?php
 
 $tags = [
@@ -6,11 +10,11 @@ $tags = [
     'diagramação',
 ];
 
-?>
+        ?>
 
 
 <!--- tags -->
-<div class="flex items-center w-full overflow-x-hidden hover:overflow-x-auto gap-5 py-2 mb-1">
+<div class="flex items-center w-full overflow-x-auto gap-5 py-2 mb-1">
     <button class="text-sm text-white font-medium hover:bg-blue-500 rounded-md border-2 border-white text-center min-w-[100px] p-2">
         adicionar +
     </button>
@@ -32,7 +36,7 @@ $tags = [
     </h3>
     <hr>
 
-    <div class="flex items-center w-full p-4 py-8 overflow-x-hidden hover:overflow-x-scroll">
+    <div class="flex items-center w-full p-4 py-8 overflow-x-scroll">
 
         <div class="card text-black relative drop-shadow-md hover:z-10">
             <h2 class="font-bold text-[17px]">Integração com API Banco do Brasil</h2>
@@ -73,7 +77,7 @@ $tags = [
     </h3>
     <hr>
 
-    <div class="flex items-center w-full p-4 py-8 overflow-x-hidden hover:overflow-x-scroll">
+    <div class="flex items-center w-full p-4 py-8 overflow-x-scroll">
 
         <a href="/project/1" class="card text-black relative drop-shadow-md hover:z-10">
             <h2 class="font-bold text-[17px]">Integração com API Banco do Brasil</h2>
