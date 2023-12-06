@@ -8,9 +8,9 @@ class HomeController
     {
         $users = findAll('users');
 
-        delete_data(
-            'users',
-            ['id' => 25]);
+        if (!is_logged()) {
+            redirect('/login');
+        }
 
         return [
             'view' => 'home_template.php',
