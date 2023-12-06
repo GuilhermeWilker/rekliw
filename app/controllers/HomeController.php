@@ -6,17 +6,15 @@ class HomeController
 {
     public function index($request)
     {
-        $users = findAll('users');
-
-        if (!is_logged()) {
-            redirect('/login');
-        }
+        $users = findAll('freelancer');
+        $tags = findAll('tags');
 
         return [
             'view' => 'home_template.php',
             'data' => [
                 'title' => 'Home',
                 'users' => $users,
+                'tags' => $tags,
             ],
         ];
     }
