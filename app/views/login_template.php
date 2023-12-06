@@ -20,7 +20,7 @@
 
     <p class="my-2 text-gray-300 text-sm">
         Não possui conta? 
-        <a href="/user/create" class="underline"> faça seu cadastro clicando aqui!</a>
+        <a href="/register" class="underline"> faça seu cadastro clicando aqui!</a>
     </p>
     
 
