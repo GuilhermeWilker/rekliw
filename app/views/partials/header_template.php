@@ -7,7 +7,11 @@
         Whatever
         <?php } ?>
     </h3>
-    <div class="bg-white h-10 w-10 rounded-lg"></div>
+    <div class="bg-[#303030] h-12 w-12 rounded-lg flex items-center justify-center">
+        <a href="/logout">
+            <img src="/assets/imgs/logout.png" class="h-8 w-8" alt="Ícone de log out">
+        </a>
+    </div>
 </div>
 
 <div>
