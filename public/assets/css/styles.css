@@ -73,6 +73,19 @@ input[type="range"] {
   }
 }
 
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .slider-value {
   position: absolute;
   top: -18px;
