@@ -2,7 +2,7 @@
 <div class="flex items-center justify-between">
     <h3 class="text-3xl font-family-righteous">
         <?php if (is_logged()) { ?>
-            <?php echo user()->name; ?>
+            <?php echo user()->first_name; ?>
         <?php } else {?>
         Whatever
         <?php } ?>

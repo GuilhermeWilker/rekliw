@@ -23,7 +23,12 @@ class LoginController
             return redirect_with_error_message('message', 'Email ou senha inválidos', '/login');
         }
 
-        $user = findBy('users', 'email', $email);
+        $user = findBy(
+            'freelancer',
+            'email',
+            $email
+        );
+
         if (!$user) {
             return redirect_with_error_message('message', 'Email ou senha inválidos', '/login');
         }

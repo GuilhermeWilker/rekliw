@@ -4,16 +4,6 @@ namespace app\controllers;
 
 class UserController
 {
-    public function show($request)
-    {
-        if (!isset($request['user'])) {
-            return redirect('/');
-        }
-
-        $user = findBy('users', 'id', $request['user'], 'email, name');
-        dd($user);
-    }
-
     public function create()
     {
         return [
@@ -27,22 +17,23 @@ class UserController
     public function store()
     {
         $validate = validate([
-            'name' => 'required',
-            'email' => 'email|unique:users',
+            'first_name' => 'required|minlen:3',
+            'last_name' => 'required|minlen:3',
+            'email' => 'email|unique:freelancer',
             'password' => 'required|minlen:3',
         ]);
 
         if (!$validate) {
-            return redirect('/user/create');
+            return redirect('/register');
         }
 
         $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
 
-        $created = create_data('users', $validate);
+        $created = create_data('freelancer', $validate);
         if (!$created) {
             set_flash_message('message', 'Erro ao criar usuário, tente novamente mais tarde.');
 
-            return redirect('/user/create');
+            return redirect('/register');
         }
 
         return redirect('/');

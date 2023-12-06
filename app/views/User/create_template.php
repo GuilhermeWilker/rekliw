@@ -1,19 +1,25 @@
 
-<div class="flex items-center justify-center my-[45px]">
+<div class="flex items-center justify-center my-[30px]">
     <a href="/">
         <img src="/assets/imgs/rekliw_logo.png" alt="Rekliw logo">
     </a>
 </div>
 
 <form action="/user/store" method="post">
-<p class="text-center py-3">
+    <p class="text-center py-3">
         <?php echo get_flash_message('message'); ?>
     </p>
 
     <div class="my-2">
-        <label for="name" class="block text-sm text-gray-500 font-medium py-3">Nome:</label>
-        <input class="w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none" name="name" type="text">
-        <?php echo get_flash_message('name'); ?>
+        <label for="first_name" class="block text-sm text-gray-500 font-medium py-3">Nome:</label>
+        <input class="w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none" name="first_name" type="text">
+        <?php echo get_flash_message('first_name'); ?>
+    </div>
+
+    <div class="my-2">
+        <label for="last_name" class="block text-sm text-gray-500 font-medium py-3">Sobrenome:</label>
+        <input class="w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none" name="last_name" type="text">
+        <?php echo get_flash_message('last_name'); ?>
     </div>
 
     <div class="my-2">

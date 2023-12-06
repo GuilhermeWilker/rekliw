@@ -9,6 +9,10 @@ class HomeController
         $users = findAll('freelancer');
         $tags = findAll('tags');
 
+        if (!is_logged()) {
+            redirect('/login');
+        }
+
         return [
             'view' => 'home_template.php',
             'data' => [
