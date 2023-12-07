@@ -1,17 +1,28 @@
-let add_tagsButton = document.getElementById("add_tagsButton");
-let modal = document.getElementById("modal");
-let span = document.getElementById("close_tagFormModal");
+let tagModal = document.getElementById("modal");
 
-add_tagsButton.onclick = function () {
-  modal.style.display = "block";
-};
-
-span.onclick = function () {
-  modal.style.display = "none";
-};
+let projectModal = document.getElementById("projectModal");
 
 window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == tagModal) {
+    tagModal.style.display = "none";
+  }
+
+  if (event.target == projectModal) {
+    projectModal.style.display = "none";
   }
 };
+
+function showProjectModal() {
+  projectModal.style.display = "block";
+}
+function hideProjectModal() {
+  projectModal.style.display = "none";
+}
+
+// ------------
+function showTagModal() {
+  tagModal.style.display = "block";
+}
+function hideTagModal() {
+  tagModal.style.display = "none";
+}
