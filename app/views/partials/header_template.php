@@ -15,11 +15,10 @@
 </div>
 
 <div>
+    <?php if (isset($project)) { ?>
     <p class="text-md font-family-righteous">Projeto: Monalisa INC.</p>
-</div>
-
-<div class="mt-5">
-    <p class="p-2 text-center text-sm border-2 border-white rounded-md w-1/2 bg-[#363636]">
-        🧑‍🚀 2.596 Clientes
+    <?php } ?>
+    <p class="text-md font-family-righteous">
+    Fullstack | UX/UI Designer
     </p>
 </div>

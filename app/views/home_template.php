@@ -1,44 +1,34 @@
-<header class="w-full py-5">
+<header class="w-full py-5 px-2">
     <?php require 'partials/header_template.php'; ?>
 </header>
 
 <?php echo get_flash_message('error_message'); ?>
 <?php echo get_flash_message('message', 'text-green-400'); ?>
 
-<!--- Tags -->
-<?php include 'partials/home/tags_partials.php'; ?>
+<!-- Projetos -->
+<section class="mt-5 overflow-y-scroll h-[50vh]">
 
-<!-- Modal -->
-<?php include 'partials/home/modal_add_tags.php'; ?>
+    <button 
+        class="p-2 text-center text-sm border-2 border-white rounded-md w-1/2 bg-[#363636] ml-5 mb-4"
+        id="add_projectButton" onclick="showProjectModal()">
+        Novo projeto 📑
+    </button>
 
-<!-- Categorias -->
-<section class="mt-5">
-        <!-- Categoria container -->
+    <!-- modal -->
+    <?php echo include 'partials/project/modal_add_projects.php'; ?>
+
+    <!-- Projeto -->
     <article class="my-2">
-        <h3 class="text-lg">
-            <span class="text-blue-500">#</span> UX/UI
-        </h3>
-        <hr>
+        <div class="w-[90%] hover:w-[100%] transition-all mx-auto bg-[#363636] hover:bg-[#364262] rounded-lg p-5 my-2">
+            <h3 class="text-2xl font-bold my-1">
+                Monalisa INC.
+            </h3>
 
-        <!-- Cards Container-->
-        <div class="flex items-center w-full p-4 py-8 overflow-x-scroll">
-
-        <!-- Card -->
-        <div class="card text-black relative drop-shadow-md hover:z-10">
-                <h2 class="font-bold text-[17px]">Integração com API Banco do Brasil</h2>
-
-                <p class="my-3 text-gray-300 text-sm text-justify">
-                    Lorem ipsum, dolor sit adipisci esse nemo unde inventore quisquam et est animi....
-                </p>
-
-                <input type="range" id="myRange" min="0" max="100" value="0" step="25">
-                <span class="slider-value" id="sliderValue">%</span>
-            </div>
+            <p class="text-sm">
+                Lorem ipsum dolor sit.
+            </p>
         </div>
     </article>
 </section>
 
-
-<script src="/assets/js/pop-up.js"></script>
-<script src="/assets/js/card.js"></script>
-
+<script src="assets/js/pop-up.js"></script>
