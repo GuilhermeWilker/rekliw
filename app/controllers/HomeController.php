@@ -7,15 +7,7 @@ class HomeController
     public function index($request)
     {
         $users = findAll('freelancer');
-        $tags = find_associated_data_by(
-            'tags',
-            'freelancer_tags',
-
-            'id',
-            'tag_id',
-
-            user()->id
-        );
+        $projects = findAll('projetos');
 
         if (!is_logged()) {
             redirect('/login');
@@ -26,7 +18,7 @@ class HomeController
             'data' => [
                 'title' => 'Home',
                 'users' => $users,
-                'tags' => $tags,
+                'projects' => $projects,
             ],
         ];
     }

@@ -19,15 +19,19 @@
 
     <!-- Projeto -->
     <article class="my-2">
-        <div class="w-[90%] hover:w-[100%] transition-all mx-auto bg-[#363636] hover:bg-[#364262] rounded-lg p-5 my-2">
-            <h3 class="text-2xl font-bold my-1">
-                Monalisa INC.
-            </h3>
+        <?php foreach ($projects as $project) { ?>
+            <div 
+                class="w-[90%] hover:w-[100%] transition-all 
+                    mx-auto bg-[#363636] hover:bg-[#364262] rounded-lg p-5 my-2">
+                <h3 class="text-2xl font-bold my-1">
+                    <?php echo $project->title; ?>
+                </h3>
 
-            <p class="text-sm">
-                Lorem ipsum dolor sit.
-            </p>
-        </div>
+                <p class="text-sm">
+                    Lorem ipsum dolor sit.
+                </p>
+            </div>
+        <?php } ?>
     </article>
 </section>
 
