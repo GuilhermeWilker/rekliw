@@ -15,16 +15,6 @@
                 name="title" 
                 class=" block w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none" placeholder="Título do seu projeto">
 
-            <select 
-                name="project" 
-                class=" block w-full my-2 p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none">
-                    <?php foreach ($tags as $tag) { ?>
-                        <option value="<?php echo $tag->id; ?>">
-                            <?php echo $tag->tag_name; ?>
-                        </option>
-                    <?php } ?>
-            </select>
-
             <button 
                 type="submit" 
                 class="rounded-sm bg-[#2957cd] border-2 border-[#d9d9d9] 

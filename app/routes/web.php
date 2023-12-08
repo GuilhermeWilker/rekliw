@@ -10,4 +10,5 @@ return [
     ['POST', '/login', 'LoginController@store'],
     ['POST', '/user/store', 'UserController@store'],
     ['POST', '/tag', 'TagController@store'],
+    ['POST', '/project', 'ProjectController@store'],
 ];
