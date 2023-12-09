@@ -20,11 +20,11 @@
     <!-- Projeto -->
     <article class="my-2">
         <?php foreach ($projects as $project) { ?>
-            <div 
-                class="w-[90%] hover:w-[100%] transition-all 
-                    mx-auto bg-[#363636] hover:bg-[#364262] rounded-lg p-5 my-2">
+            <div class="w-[90%] hover:w-[100%] transition-all mx-auto bg-[#363636] hover:bg-[#364262] rounded-lg p-5 my-2">
                 <h3 class="text-2xl font-bold my-1">
-                    <?php echo $project->title; ?>
+                    <a href="/project/<?php echo $project->id; ?>">
+                        <?php echo $project->title; ?>
+                    </a>
                 </h3>
 
                 <p class="text-sm">

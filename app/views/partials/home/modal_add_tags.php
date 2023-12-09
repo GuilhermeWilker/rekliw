@@ -6,7 +6,7 @@
             &times;
         </span>
 
-        <form action="/tag" method="post" 
+        <form action="/tag/<?php echo $project->id; ?>" method="post" 
             id="add_tagsForm" class="add_tagsForm">
             
             <input 

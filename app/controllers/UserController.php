@@ -19,7 +19,7 @@ class UserController
         $validate = validate([
             'first_name' => 'required|minlen:3',
             'last_name' => 'required|minlen:3',
-            'email' => 'email|unique:freelancer',
+            'email' => 'email|unique:freelancers',
             'password' => 'required|minlen:3',
         ]);
 
@@ -29,7 +29,7 @@ class UserController
 
         $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
 
-        $created = create_data('freelancer', $validate);
+        $created = create_data('freelancers', $validate);
         if (!$created) {
             set_flash_message('message', 'Erro ao criar usuário, tente novamente mais tarde.');
 
