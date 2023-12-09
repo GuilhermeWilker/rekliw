@@ -6,8 +6,8 @@ class HomeController
 {
     public function index($request)
     {
-        $users = findAll('freelancer');
-        $projects = findAll('projetos');
+        $users = findAll('freelancers');
+        $projects = findAll('projects');
 
         if (!is_logged()) {
             redirect('/login');

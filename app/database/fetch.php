@@ -42,16 +42,16 @@ function find_last_inserted(string $field, string $table)
     }
 }
 
-function find_associated_data_by(string $table, string $pivot_table, string $column, $pivot_column, $user_id)
+function find_associated_data_by(string $table, string $pivot_table, string $column, $pivot_column, $comparison_column, $comparison_value)
 {
     $db = connect_database();
 
     $sql = "SELECT $table.* FROM $table
             JOIN $pivot_table ON $table.$column = $pivot_table.$pivot_column
-            WHERE $pivot_table.freelancer_id = :user_id";
+            WHERE $pivot_table.$comparison_column = :comparison_value";
 
     $prepare = $db->prepare($sql);
-    $prepare->bindParam(':user_id', $user_id);
+    $prepare->bindParam(':comparison_value', $comparison_value);
     $prepare->execute();
 
     return $prepare->fetchAll(\PDO::FETCH_OBJ);

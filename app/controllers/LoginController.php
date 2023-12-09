@@ -24,7 +24,7 @@ class LoginController
         }
 
         $user = findBy(
-            'freelancer',
+            'freelancers',
             'email',
             $email
         );
