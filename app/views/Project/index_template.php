@@ -31,10 +31,11 @@
 <?php echo get_flash_message('message', 'text-green-400'); ?>
 
 <!--- Tags -->
-<?php include VIEWS.'partials/home/tags_partials.php'; ?>
+<?php include VIEWS.'partials/tags_partials.php'; ?>
 
 <!-- Modal -->
-<?php include VIEWS.'partials/home/modal_add_tags.php'; ?>
+<?php include VIEWS.'partials/modal_add_tags.php'; ?>
+<?php include VIEWS.'partials/modal_add_task_card.php'; ?>
 
 <!-- Categorias -->
 <section class="mt-5">
@@ -49,21 +50,19 @@
         <div class="flex items-center w-full p-4 py-8 overflow-x-scroll">
 
         <!-- Card -->
-        <div class="card text-black relative drop-shadow-md hover:z-10">
-                <h2 class="font-bold text-[17px]">Integração com API Banco do Brasil</h2>
-
-                <p class="my-3 text-gray-300 text-sm text-justify">
-                    Lorem ipsum, dolor sit adipisci esse nemo unde inventore quisquam et est animi....
-                </p>
-
-                <input type="range" id="myRange" min="0" max="100" value="0" step="25">
-                <span class="slider-value" id="sliderValue">%</span>
-            </div>
+        <?php include VIEWS.'partials/task_cards.php'; ?>
+      
         </div>
     </article>
 </section>
 
-
+<script>
+var simplemde = new SimpleMDE({ 
+    element: document.getElementById("content-task"),
+    lineWrapping: true,
+});
+</script>
 <script src="/assets/js/pop-up.js"></script>
 <script src="/assets/js/card.js"></script>
+
 

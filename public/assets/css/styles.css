@@ -116,6 +116,38 @@ input[type="range"] {
   }
 }
 
+.card-add {
+  min-height: 15em;
+  max-width: 11.5em;
+  min-width: 11.5em;
+
+  border-radius: 1em;
+  padding: 1em;
+
+  background-color: #3636368e;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  transform: rotate(-6deg);
+
+  &:hover {
+    background-color: #363636af;
+    transform: rotate(0deg);
+
+    & .card-icon {
+      width: 6em;
+      height: 6em;
+    }
+  }
+
+  .card-icon {
+    background-color: #2727278e;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    transition: ease-in-out 0.1s;
+  }
+}
+
 .overview-img {
   width: 100%;
   height: 12em;

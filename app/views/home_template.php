@@ -15,7 +15,7 @@
     </button>
 
     <!-- modal -->
-    <?php echo include 'partials/project/modal_add_projects.php'; ?>
+    <?php echo include 'partials/modal_add_projects.php'; ?>
 
     <!-- Projeto -->
     <article class="my-2">
