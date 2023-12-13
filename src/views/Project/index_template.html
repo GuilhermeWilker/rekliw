@@ -1,0 +1,64 @@
+<header class="w-full py-5">
+    
+<div class="flex items-center justify-between">
+    <h3 class="text-3xl font-family-righteous">
+       Guilherme Wilker
+    </h3>
+    <div class="bg-[#303030] h-12 w-12 rounded-lg flex items-center justify-center">
+        <a href="/logout">
+            <img src="/assets/imgs/logout.png" class="h-8 w-8" alt="Ícone de log out">
+        </a>
+    </div>
+</div>
+
+<div>
+    {% if project %}
+        <p class="text-md font-family-righteous">Projeto:{{ project['title'] }}.</p>
+    {% endif %}
+
+    <p class="text-md font-family-righteous">
+        Fullstack | UX/UI Designer
+    </p>
+</div>
+
+</header>
+
+<?php echo get_flash_message('error_message'); ?>
+<?php echo get_flash_message('message', 'text-green-400'); ?>
+
+<!--- Tags -->
+{% include "../partials/modal_add_tags.html" %}
+
+<!-- Modal -->
+{% include "../partials/modal_add_tags.html" %}
+{% include "../partials/modal_add_task_card.html" %}
+
+<!-- Categorias -->
+<section class="mt-5">
+        <!-- Categoria container -->
+    <article class="my-2">
+        <h3 class="text-lg">
+            <span class="text-blue-500">#</span> UX/UI
+        </h3>
+        <hr>
+
+        <!-- Cards Container-->
+        <div class="flex items-center w-full p-4 py-8 overflow-x-scroll">
+
+        <!-- Card -->
+        {% include "../partials/task_cards.html" %}
+      
+        </div>
+    </article>
+</section>
+
+<script>
+var simplemde = new SimpleMDE({ 
+    element: document.getElementById("content-task"),
+    lineWrapping: true,
+});
+</script>
+<script src="/assets/js/pop-up.js"></script>
+<script src="/assets/js/card.js"></script>
+
+
