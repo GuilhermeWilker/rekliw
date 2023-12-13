@@ -14,7 +14,7 @@
         </button>
     
         <!-- modal -->
-        <?php echo include 'partials/modal_add_projects.php'; ?>
+        {% include 'partials/modal_add_projects.html' %}
     
         <!-- Projeto -->
         <article class="my-2">
@@ -34,3 +34,7 @@
         </article>
     </section>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="/assets/js/pop-up.js"></script>
+{% endblock scripts %}

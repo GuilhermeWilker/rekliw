@@ -2,6 +2,7 @@
 
 use app\controllers\HomeController;
 use app\controllers\LoginController;
+use app\controllers\ProjectController;
 use app\controllers\UserController;
 
 $app->get('/', HomeController::class.':index');
@@ -10,7 +11,7 @@ $app->get('/register', UserController::class.':create');
 
 $app->get('/login', LoginController::class.':index');
 $app->get('/logout', LoginController::class.':destroy');
-// $app->get('/project/[0-9]+', ProjectController::class.':show');
+$app->get('/project/{id}', ProjectController::class.':show');
 
 $app->post('/login', LoginController::class.':store');
 $app->post('/user/store', UserController::class.':store');
