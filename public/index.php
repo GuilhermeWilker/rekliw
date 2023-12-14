@@ -14,6 +14,7 @@ use Slim\Middleware\MethodOverrideMiddleware;
 $app = AppFactory::create();
 require '../src/helpers/constants.php';
 require '../src/helpers/functions.php';
+
 require '../src/routes/web.php';
 
 $methodOverrideMiddleware = new MethodOverrideMiddleware();

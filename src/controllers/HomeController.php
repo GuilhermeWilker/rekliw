@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\classes\Flash;
+use app\database\models\Freelancer;
 
 class HomeController extends Controller
 {
@@ -10,21 +10,16 @@ class HomeController extends Controller
     {
         $query = $this->getQueryBuilder();
 
-        $freelancers = $query->select('*')
-            ->from('freelancers')
-            ->fetchAllAssociative();
+        $freelancers = Freelancer::all();
 
         $projects = $query->select('*')
             ->from('projects')
             ->fetchAllAssociative();
 
-        $message = Flash::getMessage('message');
-
         return $this->getView()->render($response, $this->setView('index'), [
             'title' => 'Home',
             'freelancers' => $freelancers,
             'projects' => $projects,
-            'message' => $message,
         ]);
     }
 }
