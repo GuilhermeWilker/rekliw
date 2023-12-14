@@ -16,4 +16,4 @@ $app->get('/project/{id}', ProjectController::class.':show');
 $app->post('/login', LoginController::class.':store');
 $app->post('/user/store', UserController::class.':store');
 // $app->post('/tag/[0-9]+', TagController::class.':store');
-// $app->post('/project', ProjectController::class.':store');
+$app->post('/project', ProjectController::class.':store');

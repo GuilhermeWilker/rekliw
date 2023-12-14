@@ -9,4 +9,9 @@ abstract class Controller
 {
     use Templates;
     use DoctrineTrait;
+
+    protected function query()
+    {
+        return $this->getQueryBuilder();
+    }
 }

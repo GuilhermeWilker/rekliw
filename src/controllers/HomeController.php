@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\classes\Flash;
+
 class HomeController extends Controller
 {
     public function index($request, $response)
@@ -16,10 +18,13 @@ class HomeController extends Controller
             ->from('projects')
             ->fetchAllAssociative();
 
+        $message = Flash::getMessage('message');
+
         return $this->getView()->render($response, $this->setView('index'), [
             'title' => 'Home',
             'freelancers' => $freelancers,
             'projects' => $projects,
+            'message' => $message,
         ]);
     }
 }

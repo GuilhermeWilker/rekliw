@@ -6,9 +6,7 @@ class ProjectController extends Controller
 {
     public function show($request, $response, $args)
     {
-        $query = $this->getQueryBuilder();
-
-        $tags = $query->select('*')
+        $tags = $this->query()->select('*')
             ->from('tags')
             ->fetchAllAssociative();
 
@@ -17,5 +15,10 @@ class ProjectController extends Controller
                 'title' => 'Projeto',
                 'tags' => $tags,
             ]);
+    }
+
+    public function store($request, $response, $args)
+    {
+        dd($_POST['title']);
     }
 }
