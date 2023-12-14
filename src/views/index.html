@@ -5,6 +5,8 @@
         {% include "partials/header_partial.html" %}
     </header>
 
+    {{ message['message'] }}
+
     <section class="mt-5 overflow-y-scroll h-[50vh]">
 
         <button 
@@ -14,7 +16,7 @@
         </button>
     
         <!-- modal -->
-        <?php echo include 'partials/modal_add_projects.php'; ?>
+        {% include 'partials/modal_add_projects.html' %}
     
         <!-- Projeto -->
         <article class="my-2">
@@ -34,3 +36,7 @@
         </article>
     </section>
 {% endblock content %}
+
+{% block scripts %}
+<script src="/assets/js/pop-up.js"></script>
+{% endblock scripts %}

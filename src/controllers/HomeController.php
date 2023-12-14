@@ -2,15 +2,15 @@
 
 namespace app\controllers;
 
+use app\database\models\Freelancer;
+
 class HomeController extends Controller
 {
     public function index($request, $response)
     {
         $query = $this->getQueryBuilder();
 
-        $freelancers = $query->select('*')
-            ->from('freelancers')
-            ->fetchAllAssociative();
+        $freelancers = Freelancer::all();
 
         $projects = $query->select('*')
             ->from('projects')

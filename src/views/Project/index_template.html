@@ -1,3 +1,6 @@
+{% extends "master_template.html" %} 
+
+{% block content %} 
 <header class="w-full py-5">
     
 <div class="flex items-center justify-between">
@@ -27,11 +30,11 @@
 <?php echo get_flash_message('message', 'text-green-400'); ?>
 
 <!--- Tags -->
-{% include "../partials/modal_add_tags.html" %}
+{% include "Project/partials/tags_partials.html" %}
 
 <!-- Modal -->
-{% include "../partials/modal_add_tags.html" %}
-{% include "../partials/modal_add_task_card.html" %}
+ {% include "Project/partials/modal_add_tags.html" %} 
+ {% include "Project/partials/modal_add_task_card.html" %} 
 
 <!-- Categorias -->
 <section class="mt-5">
@@ -46,12 +49,14 @@
         <div class="flex items-center w-full p-4 py-8 overflow-x-scroll">
 
         <!-- Card -->
-        {% include "../partials/task_cards.html" %}
+        {% include "Project/partials/task_cards.html" %} 
       
         </div>
     </article>
 </section>
+{% endblock content %} 
 
+{% block scripts %}
 <script>
 var simplemde = new SimpleMDE({ 
     element: document.getElementById("content-task"),
@@ -60,5 +65,4 @@ var simplemde = new SimpleMDE({
 </script>
 <script src="/assets/js/pop-up.js"></script>
 <script src="/assets/js/card.js"></script>
-
-
+{% endblock scripts %}
