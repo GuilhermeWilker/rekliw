@@ -5,7 +5,7 @@
         {% include "partials/header_partial.html" %}
     </header>
 
-    {{ message['message'] }}
+
 
     <section class="mt-5 overflow-y-scroll h-[50vh]">
 
@@ -15,6 +15,9 @@
             Novo projeto 📑
         </button>
     
+        <p class="text-center py-3">
+            {{ messages['messages']['message'] }}
+        </p>
         <!-- modal -->
         {% include 'partials/modal_add_projects.html' %}
     

@@ -16,19 +16,16 @@
 
 <div>
     {% if project %}
-        <p class="text-md font-family-righteous">Projeto:{{ project['title'] }}.</p>
-    {% endif %}
+        <p class="text-md font-family-righteous">Projeto: {{ project['title'] }}.</p>
 
-    <p class="text-md font-family-righteous">
-        Fullstack | UX/UI Designer
-    </p>
+    {% else %}
+        <p class="text-md font-family-righteous">
+            Fullstack | UX/UI Designer
+        </p>
+    {% endif %}   
 </div>
 
 </header>
-
-<?php echo get_flash_message('error_message'); ?>
-<?php echo get_flash_message('message', 'text-green-400'); ?>
-
 <!--- Tags -->
 {% include "Project/partials/tags_partials.html" %}
 
