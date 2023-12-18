@@ -11,6 +11,7 @@ const showModal = () => {
 
 const form = reactive({
   tag_name: null,
+  project_id: usePage().props.project.id,
 });
 
 const submit = () => {
@@ -47,6 +48,8 @@ const submit = () => {
       </span>
       <div class="bg-[#292929] mt-[50%] p-3 w-80 rounded-md relative mx-auto">
         <form action="/tag" @submit.prevent="submit" class="add_tagsForm">
+          <input type="hidden" name="project_id" :value="$page.props.project.id" />
+
           <input
             type="text"
             name="tag_name"

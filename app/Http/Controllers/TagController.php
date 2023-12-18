@@ -11,8 +11,11 @@ class TagController extends Controller
     {
         $validated = $request->validate([
             'tag_name' => 'required',
+            'project_id' => 'required|exists:projects,id',
         ]);
 
         Tag::create($validated);
+
+        return redirect()->back();
     }
 }

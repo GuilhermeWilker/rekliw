@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 use Inertia\Controller;
 use Inertia\Inertia;
@@ -16,18 +15,16 @@ class ProjectController extends Controller
             'title' => 'required',
         ]);
 
-        $project = (new Project())->insert($validated);
+        Project::create($validated);
 
-        if ($project) {
-            return redirect('/');
-        }
+        return redirect('/');
     }
 
     public function show(Project $project)
     {
         return Inertia::render('Project/index', [
             'project' => $project,
-            'tags' => Tag::all(),
+            'tags' => $project->tags,
         ]);
     }
 }

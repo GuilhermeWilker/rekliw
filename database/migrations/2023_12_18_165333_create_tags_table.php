@@ -12,6 +12,7 @@ return new class() extends Migration {
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
             $table->string('tag_name');
             $table->timestamps();
         });
