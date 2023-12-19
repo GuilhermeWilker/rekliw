@@ -13,6 +13,7 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         Project::create($validated);

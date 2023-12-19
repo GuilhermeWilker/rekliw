@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive } from "vue";
-import { router } from "@inertiajs/vue3";
+import { router, usePage } from "@inertiajs/vue3";
 
 const isModalOpen = ref(false);
 
@@ -10,6 +10,7 @@ const showModal = () => {
 
 const form = reactive({
   title: null,
+  user_id: usePage().props.auth.user.id,
 });
 
 const submit = () => {
@@ -60,5 +61,3 @@ const submit = () => {
     </div>
   </div>
 </template>
-
-

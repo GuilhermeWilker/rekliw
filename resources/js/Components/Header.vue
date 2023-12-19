@@ -1,7 +1,10 @@
 <template>
   <header class="w-full py-5 px-2">
     <nav class="flex items-center justify-between">
-      <h3 class="text-3xl font-family-righteous">{{ fullName }}</h3>
+      <Link href="/">
+        <h3 class="text-3xl font-family-righteous">{{ fullName }}</h3>
+      </Link>
+
       <div class="bg-[#303030] h-12 w-12 rounded-lg flex items-center justify-center">
         <a href="/logout">
           <img src="/assets/imgs/logout.png" class="h-8 w-8" alt="Ícone de log out" />
