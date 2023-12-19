@@ -98,23 +98,6 @@ input[type="range"] {
   border-radius: 5px;
 }
 
-.card {
-  min-height: 15em;
-  max-width: 11em;
-  min-width: 11em;
-
-  border-radius: 1em;
-  padding: 1em;
-
-  background-color: #fff;
-  cursor: pointer;
-  transition: ease-in-out 0.1s;
-  transform: rotate(-6deg);
-
-  &:hover {
-    transform: rotate(0deg);
-  }
-}
 
 .card-add {
   min-height: 11em;

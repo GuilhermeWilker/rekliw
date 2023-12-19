@@ -1,19 +1,27 @@
 <script setup>
 import { ref } from "vue";
 
-const sliderValue = ref(0);
+const sliderValue = ref(25);
 const udpateSliderValue = (e) => {
   sliderValue.value = e.target.value;
 };
+
+defineProps({
+  tasks: Array,
+});
 </script>
 
 <template>
-  <div class="card text-black relative drop-shadow-md hover:z-10">
-    <h2 class="font-bold text-[17px]">Integração com API Banco do Brasil</h2>
+  <div
+    v-for="task in tasks"
+    :key="task.id"
+    class="card text-black relative drop-shadow-md hover:z-10"
+  >
+    <h2 class="-mb-2 -mt-1 pt-3 font-bold text-[17px]">{{ task.task_title }}</h2>
 
-    <p class="my-3 text-gray-300 text-sm text-justify">
-      Lorem ipsum, dolor sit adipisci esse nemo unde inventore quisquam et est animi....
-    </p>
+    <div class="my-1 overflow-y-hidden h-[7em]">
+      <p class="text-gray-500 text-xs" v-html="task.task_content"></p>
+    </div>
 
     <input
       type="range"
@@ -22,8 +30,30 @@ const udpateSliderValue = (e) => {
       max="100"
       :value="sliderValue"
       step="25"
+      disabled
       @input="udpateSliderValue"
     />
     <span class="slider-value" id="sliderValue">{{ sliderValue }}%</span>
   </div>
 </template>
+
+<style scoped>
+.card {
+  min-height: 12em;
+  max-height: 18em;
+  max-width: 11em;
+  min-width: 11em;
+
+  border-radius: 1em;
+  padding: 1em;
+
+  background-color: #fff;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  transform: rotate(-6deg);
+
+  &:hover {
+    transform: rotate(0deg);
+  }
+}
+</style>

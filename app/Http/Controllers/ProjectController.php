@@ -26,6 +26,7 @@ class ProjectController extends Controller
         return Inertia::render('Project/index', [
             'project' => $project,
             'tags' => $project->tags,
+            'tasks' => $project->tasks,
         ]);
     }
 }

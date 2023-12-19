@@ -39,7 +39,7 @@ const showModal = () => {
         &times;
       </span>
 
-      <TaskCardForm :tags="tags" />
+      <TaskCardForm :tags="tags" :showModal="showModal" />
     </div>
   </div>
 </template>
