@@ -23,7 +23,7 @@ const form = reactive({
 
 function submit() {
   router.post("/", form);
-  showModal();
+  window.location.reload();
 }
 </script>
 
@@ -69,6 +69,7 @@ function submit() {
       <button
         type="submit"
         class="rounded-sm bg-[#2957cd] border-2 border-[#d9d9d9] text-white p-2 w-full my-2 font-bold hover:bg-[#3768E5]"
+        @submit="showModal()"
       >
         criar tarefa
       </button>

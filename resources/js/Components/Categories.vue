@@ -7,11 +7,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full p-4">
+  <div class="w-full pl-1">
     <p># Backend</p>
     <hr />
 
-    <div class="prose flex items-center overflow-x-scroll p-4 py-8">
+    <div class="prose flex items-center overflow-x-scroll p-2 py-8">
       <TaskCard :tasks="tasks" />
     </div>
   </div>

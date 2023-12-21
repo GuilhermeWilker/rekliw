@@ -16,6 +16,7 @@ const form = reactive({
 
 const submit = () => {
   router.post("/tag", form);
+  window.location.reload();
 };
 </script>
 

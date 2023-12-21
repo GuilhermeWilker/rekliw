@@ -22,4 +22,8 @@ class TaskController extends Controller
                 'project_id' => $project_id,
         ]);
     }
+
+    public function show()
+    {
+    }
 }

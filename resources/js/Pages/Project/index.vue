@@ -2,11 +2,11 @@
   <AppLayout>
     <Header :project="project" />
 
-    <section class="mt-5 overflow-y-scroll h-[70vh]">
+    <section class="mt-5 overflow-y-scroll h-[100%]">
       <ModalAddTags />
 
       <!-- Add task card -->
-      <div class="p-4">
+      <div class="pl-4">
         <AddTaskCard />
       </div>
 

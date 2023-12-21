@@ -15,6 +15,7 @@ const form = reactive({
 
 const submit = () => {
   router.post("/project", form);
+  window.location.reload();
 };
 </script>
 

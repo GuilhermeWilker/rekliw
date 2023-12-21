@@ -39,8 +39,8 @@ defineProps({
 
 <style scoped>
 .card {
-  min-height: 12em;
-  max-height: 18em;
+  min-height: 14em;
+  max-height: 14em;
   max-width: 11em;
   min-width: 11em;
 
