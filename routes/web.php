@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::post('/project', [ProjectController::class, 'store']);
     Route::get('/project/{project}', [ProjectController::class, 'show']);
+    Route::get('/card/{task}', [TaskController::class, 'show']);
 
     Route::post('/tag', [TagController::class, 'store']);
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class TaskController extends Controller
 {
@@ -23,7 +24,10 @@ class TaskController extends Controller
         ]);
     }
 
-    public function show()
+    public function show(Task $task)
     {
+        return Inertia::render('Project/show', [
+            'task' => $task,
+        ]);
     }
 }
