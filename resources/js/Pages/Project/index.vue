@@ -24,9 +24,5 @@ import AddTaskCard from "../../Components/AddTaskCard.vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { usePage } from "@inertiajs/vue3";
 
-const tasks = usePage().props.tasks;
-
-defineProps({
-  projects: Object,
-});
+const { tasks, project } = usePage().props;
 </script>

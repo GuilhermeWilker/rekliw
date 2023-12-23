@@ -17,7 +17,7 @@
     </div>
     <div v-else>
       <p class="text-md font-family-righteous">
-        <small>✨ {{ time }}</small>
+        <small>✨ {{ __date(freelancer.created_at) }}</small>
       </p>
     </div>
   </header>
@@ -25,20 +25,16 @@
 
 <script setup>
 import { usePage } from "@inertiajs/vue3";
-import { computed, defineProps } from "vue";
+import { computed } from "vue";
+import { __date } from "@/Composables/useDateFormat.js";
 
 defineProps({
   project: Object,
 });
 
-const page = usePage();
-console.log(page.props);
-
-const freelancer = page.props.auth.user;
+const freelancer = usePage().props.auth.user;
 
 const fullName = computed(() => {
   return freelancer ? `${freelancer.first_name} ${freelancer.last_name}` : "";
 });
-
-let time = new Date(freelancer.created_at).toLocaleDateString();
 </script>

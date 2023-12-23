@@ -15,6 +15,7 @@ class Task extends Model
         'task_content',
         'tag',
         'project_id',
+        'reaction',
     ];
 
     public function project(): BelongsTo

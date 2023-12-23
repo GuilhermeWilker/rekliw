@@ -21,6 +21,7 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "@editorjs/editorjs": "^2.28.2",
         "simplemde": "^1.11.2"
     }
 }

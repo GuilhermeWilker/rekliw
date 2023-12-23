@@ -30,4 +30,24 @@ class TaskController extends Controller
             'task' => $task,
         ]);
     }
+
+    public function reaction(Request $request)
+    {
+        $reaction = $request->input('reaction');
+        $taskId = $request->input('task_id');
+
+        $task = Task::find($taskId);
+
+        if ($reaction === 1) {
+            $task->update([
+                'reaction' => 'like',
+            ]);
+        }
+
+        if ($reaction === 2) {
+            $task->update([
+                'reaction' => 'dislike',
+            ]);
+        }
+    }
 }

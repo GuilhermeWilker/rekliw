@@ -20,6 +20,7 @@ use Inertia\Inertia;
 |
 */
 Route::post('/', [TaskController::class, 'store']);
+Route::post('/reaction', [TaskController::class, 'reaction']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

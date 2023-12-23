@@ -1,17 +1,16 @@
 <template>
   <AppLayout>
-    <section class="my-3 relative pr-3">
+    <Header />
+
+    <main class="my-3 relative pr-6 p-4">
       <!-- Reações e overview de mídias -->
-      <article class="mt-4">
-        <article class="w-full h-[100%] rounded-md p-4 shadow-lg bg-gray-100">
+      <section>
+        <!-- Overview -->
+        <article class="w-full h-[100%] rounded-md p-8 shadow-lg bg-gray-100 relative">
           <div class="flex items-center gap-2">
             <h2 class="font-family-righteous my-2 text-xl text-gray-700">
               {{ task.task_title }}
             </h2>
-
-            <small class="text-white p-1 px-3 bg-blue-600 rounded-md text-xs">
-              #{{ task.tag }}
-            </small>
           </div>
 
           <div class="w-full h-[1px] bg-slate-400 rounded-full" />
@@ -21,49 +20,91 @@
             class="prose p-3 h-full font-medium text-justify text-gray-800"
             v-html="task.task_content"
           ></div>
+
+          <div class="flex justify-between items-center">
+            <small class="text-gray-400 block my-2">
+              Publicado em <span class="font-bold">{{ __date(task.created_at) }}</span>
+            </small>
+
+            <FeedbackTag :feedback="reaction" />
+          </div>
         </article>
 
-        <div class="flex items-center my-4 justify-between">
-          <small class="text-gray-300 block my-2"> Publicado em 11/12/2023 </small>
-
+        <!-- Reações -->
+        <div class="flex items-center my-4 justify-end">
           <div class="flex items-center gap-2">
-            <button class="reaction-button p-1 px-5 text-black">like</button>
-            <button class="reaction-button p-1 px-5 bg-[#2957CD] text-white">
+            <button
+              class="reaction-button p-1 px-5 text-black hover:bg-blue-500 hover:text-white"
+              @click="addLike"
+              :class="{ 'bg-[#2957CD] text-white': reaction === 'like' }"
+            >
+              like
+            </button>
+            <button
+              class="reaction-button p-1 px-5 text-black hover:bg-blue-500 hover:text-white"
+              @click="addDislike"
+              :class="{ 'bg-[#2957CD] text-white': reaction === 'dislike' }"
+            >
               dislike
             </button>
           </div>
         </div>
-      </article>
+      </section>
 
       <hr />
 
       <!-- Comentários -->
       <article class="mt-4 h-[15em] overflow-y-scroll p-2">
         <!-- Comentários -->
-        <div class="w-full bg-white text-black text-sm p-3 comment my-2 mx-auto">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
-        </div>
+        <p
+          class="w-full bg-white text-black text-sm p-3 rounded-lg shadow-lg my-2 mx-auto flex gap-2 items-center relative hover:top-1 hover:left-1"
+        >
+          + Adicionar comentário
+        </p>
       </article>
 
       <!---->
-      <div class="flex items-center justify-between bottom-2 my-3 gap-5">
-        <Link
-          :href="`/project/${task.project_id}`"
-          class="w-[50%] p-3 rounded-lg bg-white font-medium text-black text-center"
-        >
-          Voltar
-        </Link>
-        <button class="w-[50%] p-3 rounded-lg bg-[#2957CD] font-medium">Comentar</button>
-      </div>
-    </section>
+
+      <Link
+        as="button"
+        :href="`/project/${task.project_id}`"
+        class="w-full p-3 rounded-lg bg-[#2957CD] text-center font-medium"
+      >
+        Voltar
+      </Link>
+    </main>
   </AppLayout>
 </template>
 
 <script setup>
 import AppLayout from "../../Layouts/AppLayout.vue";
-import { usePage } from "@inertiajs/vue3";
+import Header from "@/Components/Header.vue";
+import FeedbackTag from "@/Components/FeedbackTag.vue";
+import { router, usePage } from "@inertiajs/vue3";
+import { __date } from "@/Composables/useDateFormat.js";
 
 defineProps({
   task: Object,
 });
+
+const reaction = usePage().props.task.reaction;
+const reactionId = usePage().props.task.id;
+
+const addLike = () => {
+  router.post("/reaction", {
+    reaction: 1,
+    task_id: reactionId,
+  });
+
+  window.location.reload();
+};
+
+const addDislike = () => {
+  router.post("/reaction", {
+    reaction: 2,
+    task_id: reactionId,
+  });
+
+  window.location.reload();
+};
 </script>
