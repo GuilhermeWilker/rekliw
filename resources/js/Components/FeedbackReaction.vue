@@ -14,8 +14,6 @@
 defineProps({
   reaction: String,
   reactionType: Number,
-  onClick: Function,
-  name: String,
 });
 
 defineEmits(["feedback"]);

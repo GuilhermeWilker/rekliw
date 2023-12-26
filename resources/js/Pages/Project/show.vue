@@ -31,7 +31,7 @@
         </article>
 
         <!-- Reações -->
-        <div class="flex items-center my-4 justify-end">
+        <section class="flex items-center my-4 justify-end">
           <div class="flex items-center gap-2">
             <FeedbackReaction
               :reaction="reaction"
@@ -49,7 +49,7 @@
               dislike
             </FeedbackReaction>
           </div>
-        </div>
+        </section>
       </section>
 
       <hr />

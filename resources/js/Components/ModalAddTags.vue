@@ -1,8 +1,8 @@
 <script setup>
+import Tags from "./Tags.vue";
 import { ref, reactive } from "vue";
 import { router, usePage } from "@inertiajs/vue3";
 
-const tags = usePage().props.tags;
 const isModalOpen = ref(false);
 
 const showModal = () => {
@@ -30,14 +30,7 @@ const submit = () => {
         adicionar +
       </button>
 
-      <div
-        class="text-sm text-white font-medium hover:bg-blue-500 rounded-md border-2 border-white text-center min-w-[120px] p-2"
-        v-for="tag in tags"
-        :key="tag.id"
-      >
-        <span class="text-md font-bold text-blue-500">#</span>
-        {{ tag.tag_name }}
-      </div>
+      <Tags />
     </div>
 
     <div id="tagModal" class="modal" :style="{ display: isModalOpen ? 'block' : 'none' }">
