@@ -10,8 +10,8 @@
         <AddTaskCard />
       </div>
 
-      <!-- categoria -->
-      <Categories :tasks="tasks" />
+      <!-- Categorias das Tasks -->
+      <Categories />
     </section>
   </AppLayout>
 </template>
@@ -24,5 +24,5 @@ import AddTaskCard from "../../Components/AddTaskCard.vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { usePage } from "@inertiajs/vue3";
 
-const { tasks, project } = usePage().props;
+const { project } = usePage().props;
 </script>

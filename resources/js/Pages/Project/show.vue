@@ -55,12 +55,7 @@
 
       <!-- Comentários -->
       <article class="mt-4 h-[15em] overflow-y-scroll p-2">
-        <!-- Comentários -->
-        <p
-          class="w-full bg-white text-black text-sm p-3 rounded-lg shadow-lg my-2 mx-auto flex gap-2 items-center relative hover:top-1 hover:left-1"
-        >
-          + Adicionar comentário
-        </p>
+        <Commments />
       </article>
 
       <!---->
@@ -80,6 +75,7 @@
 import AppLayout from "../../Layouts/AppLayout.vue";
 import Header from "@/Components/Header.vue";
 import FeedbackTag from "@/Components/FeedbackTag.vue";
+import Commments from "@/Components/Comments.vue";
 import { router, usePage } from "@inertiajs/vue3";
 import { __date } from "@/Composables/useDateFormat.js";
 
@@ -88,12 +84,11 @@ defineProps({
 });
 
 const reaction = usePage().props.task.reaction;
-const reactionId = usePage().props.task.id;
 
 const addLike = () => {
   router.post("/reaction", {
     reaction: 1,
-    task_id: reactionId,
+    task_id: usePage().props.task.id,
   });
 
   window.location.reload();
@@ -102,7 +97,7 @@ const addLike = () => {
 const addDislike = () => {
   router.post("/reaction", {
     reaction: 2,
-    task_id: reactionId,
+    task_id: usePage().props.task.id,
   });
 
   window.location.reload();
