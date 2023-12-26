@@ -33,20 +33,21 @@
         <!-- Reações -->
         <div class="flex items-center my-4 justify-end">
           <div class="flex items-center gap-2">
-            <button
-              class="reaction-button p-1 px-5 text-black hover:bg-blue-500 hover:text-white"
-              @click="addLike"
-              :class="{ 'bg-[#2957CD] text-white': reaction === 'like' }"
+            <FeedbackReaction
+              :reaction="reaction"
+              :reactionType="1"
+              @feedback="addReaction"
             >
               like
-            </button>
-            <button
-              class="reaction-button p-1 px-5 text-black hover:bg-blue-500 hover:text-white"
-              @click="addDislike"
-              :class="{ 'bg-[#2957CD] text-white': reaction === 'dislike' }"
+            </FeedbackReaction>
+
+            <FeedbackReaction
+              :reaction="reaction"
+              :reactionType="2"
+              @feedback="addReaction"
             >
               dislike
-            </button>
+            </FeedbackReaction>
           </div>
         </div>
       </section>
@@ -76,27 +77,20 @@ import AppLayout from "../../Layouts/AppLayout.vue";
 import Header from "@/Components/Header.vue";
 import FeedbackTag from "@/Components/FeedbackTag.vue";
 import Commments from "@/Components/Comments.vue";
+import FeedbackReaction from "@/Components/FeedbackReaction.vue";
 import { router, usePage } from "@inertiajs/vue3";
 import { __date } from "@/Composables/useDateFormat.js";
 
 defineProps({
   task: Object,
+  reaction: String,
 });
 
 const reaction = usePage().props.task.reaction;
 
-const addLike = () => {
+const addReaction = (reactionType) => {
   router.post("/reaction", {
-    reaction: 1,
-    task_id: usePage().props.task.id,
-  });
-
-  window.location.reload();
-};
-
-const addDislike = () => {
-  router.post("/reaction", {
-    reaction: 2,
+    reaction: reactionType,
     task_id: usePage().props.task.id,
   });
 

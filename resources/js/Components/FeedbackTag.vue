@@ -6,6 +6,13 @@
   >
     {{ getFeedbackText(feedback) }}
   </small>
+  <small
+    v-else
+    :class="getFeedbackClass(feedback)"
+    class="text-white p-2 px-3 rounded-md text-sm absolute right-3 top-[-1.3em]"
+  >
+    {{ getFeedbackText(feedback) }}
+  </small>
 </template>
 
 <script setup>
