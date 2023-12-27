@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-[.2px]" v-if="!$page.props.auth.user">
       <textarea
         class="w-full h-[100%] bg-[#292929] text-sm p-3 rounded-md shadow-lg text-white resize-y"
         placeholder="Adicionar comentário..."
@@ -8,7 +8,7 @@
       >
       </textarea>
 
-      <button class="p-1 border-b-2 border-b-white text-lg" @click="comment">➡️</button>
+      <button class="p-1 text-4xl" @click="comment">➡️</button>
     </div>
 
     <div class="flex items-center gap-2 my-3">

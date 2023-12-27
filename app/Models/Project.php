@@ -14,6 +14,7 @@ class Project extends Model
     protected $fillable = [
         'title',
         'user_id',
+        'link',
     ];
 
     public function tags(): HasMany

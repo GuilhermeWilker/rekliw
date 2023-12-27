@@ -3,12 +3,15 @@
     <Header :project="project" />
 
     <section class="mt-5 overflow-y-scroll h-[100%]">
-      <ModalAddTags />
+      <div v-if="$page.props.auth.user">
+        <ModalAddTags />
 
-      <!-- Add task card -->
-      <div class="pl-4">
-        <AddTaskCard />
+        <!-- Add task card -->
+        <div class="pl-4">
+          <AddTaskCard />
+        </div>
       </div>
+
 
       <!-- Categorias das Tasks -->
       <Categories />

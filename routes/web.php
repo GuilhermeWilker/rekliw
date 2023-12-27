@@ -23,6 +23,8 @@ use Inertia\Inertia;
 Route::post('/', [TaskController::class, 'store']);
 Route::post('/reaction', [TaskController::class, 'reaction']);
 Route::post('/comment', [CommentController::class, 'store']);
+Route::get('/project/{project:link}', [ProjectController::class, 'show']);
+Route::get('/card/{task}', [TaskController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -31,8 +33,6 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::post('/project', [ProjectController::class, 'store']);
-    Route::get('/project/{project}', [ProjectController::class, 'show']);
-    Route::get('/card/{task}', [TaskController::class, 'show']);
 
     Route::post('/tag', [TagController::class, 'store']);
 

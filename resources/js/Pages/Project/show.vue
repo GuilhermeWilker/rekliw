@@ -31,7 +31,7 @@
         </article>
 
         <!-- Reações -->
-        <section class="flex items-center my-4 justify-end">
+        <section class="flex items-center my-4 justify-end" v-if="!$page.props.auth.user">
           <div class="flex items-center gap-2">
             <FeedbackReaction
               :isActive="reaction === 'like'"
@@ -46,13 +46,13 @@
               :reactionType="2"
               @feedback="addReaction"
             >
-              Re-avaliar
+              Reavaliar
             </FeedbackReaction>
           </div>
         </section>
       </section>
 
-      <hr />
+      <hr class="my-2" />
 
       <!-- Comentários -->
       <article class="mt-4 h-[15em] overflow-y-scroll p-2">
@@ -61,13 +61,12 @@
 
       <!---->
 
-      <Link
-        as="button"
-        :href="`/project/${task.project_id}`"
+      <button
+        @click="redirectBack"
         class="w-full p-3 my-4 rounded-lg bg-[#2957CD] text-center font-medium"
       >
         Voltar
-      </Link>
+      </button>
     </main>
   </AppLayout>
 </template>
@@ -80,6 +79,7 @@ import Commments from "@/Components/Comments.vue";
 import FeedbackReaction from "@/Components/FeedbackReaction.vue";
 import { router, usePage } from "@inertiajs/vue3";
 import { __date } from "@/Composables/useDateFormat.js";
+import { redirectBack } from "@/Composables/redirectBack.js";
 
 defineProps({
   task: Object,

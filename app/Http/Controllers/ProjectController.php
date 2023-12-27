@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Controller;
 use Inertia\Inertia;
 
@@ -16,6 +17,7 @@ class ProjectController extends Controller
             'user_id' => 'required|exists:users,id',
         ]);
 
+        $validated['link'] = Str::uuid();
         Project::create($validated);
 
         return redirect('/');
