@@ -38,7 +38,7 @@
               :reactionType="1"
               @feedback="addReaction"
             >
-              like
+              Aprovar
             </FeedbackReaction>
 
             <FeedbackReaction
@@ -46,7 +46,7 @@
               :reactionType="2"
               @feedback="addReaction"
             >
-              dislike
+              Re-avaliar
             </FeedbackReaction>
           </div>
         </section>
@@ -64,7 +64,7 @@
       <Link
         as="button"
         :href="`/project/${task.project_id}`"
-        class="w-full p-3 rounded-lg bg-[#2957CD] text-center font-medium"
+        class="w-full p-3 my-4 rounded-lg bg-[#2957CD] text-center font-medium"
       >
         Voltar
       </Link>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
@@ -21,6 +22,7 @@ use Inertia\Inertia;
 */
 Route::post('/', [TaskController::class, 'store']);
 Route::post('/reaction', [TaskController::class, 'reaction']);
+Route::post('/comment', [CommentController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -28,6 +28,7 @@ class TaskController extends Controller
     {
         return Inertia::render('Project/show', [
             'task' => $task,
+            'comments' => $task->comments,
         ]);
     }
 
