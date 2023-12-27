@@ -2,7 +2,9 @@
   <div>
     <button
       class="reaction-button p-1 px-5 text-black hover:bg-blue-500 hover:text-white"
-      :class="{ 'bg-[#2957CD] text-white': reaction === reactionType }"
+      :class="{
+        'bg-[#2957CD] text-white': isActive,
+      }"
       @click="($event) => $emit('feedback', reactionType)"
     >
       <slot />
@@ -12,7 +14,7 @@
 
 <script setup>
 defineProps({
-  reaction: String,
+  isActive: Boolean,
   reactionType: Number,
 });
 

@@ -34,7 +34,7 @@
         <section class="flex items-center my-4 justify-end">
           <div class="flex items-center gap-2">
             <FeedbackReaction
-              :reaction="reaction"
+              :isActive="reaction === 'like'"
               :reactionType="1"
               @feedback="addReaction"
             >
@@ -42,7 +42,7 @@
             </FeedbackReaction>
 
             <FeedbackReaction
-              :reaction="reaction"
+              :isActive="reaction === 'dislike'"
               :reactionType="2"
               @feedback="addReaction"
             >
