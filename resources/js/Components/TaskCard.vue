@@ -46,6 +46,7 @@ defineProps({
   max-width: 11em;
   min-width: 11em;
 
+  border: 1.5px solid #ccc;
   border-radius: 1em;
   padding: 1em;
 

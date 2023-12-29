@@ -6,7 +6,7 @@
       <!-- Reações e overview de mídias -->
       <section>
         <!-- Overview -->
-        <article class="w-full h-[100%] rounded-md p-8 shadow-lg bg-gray-100 relative">
+        <article class="w-full h-[100%] rounded-md p-8 shadow-lg bg-neutral-100 relative">
           <div class="flex items-center gap-2">
             <h2 class="font-family-righteous my-2 text-xl text-gray-700">
               {{ task.task_title }}
@@ -59,11 +59,11 @@
         <Commments />
       </article>
 
-      <!---->
+      <!-- class="w-full p-3 my-4 rounded-lg bg-[#2957CD] text-center font-medium"-->
 
       <button
         @click="redirectBack"
-        class="w-full p-3 my-4 rounded-lg bg-[#2957CD] text-center font-medium"
+        class="button py-2 px-28 my-3 hover:from-blue-800 hover:to-blue-600 hover:border-blue-600"
       >
         Voltar
       </button>

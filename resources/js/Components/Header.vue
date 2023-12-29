@@ -6,7 +6,7 @@
           <h3 class="text-3xl font-family-righteous">{{ fullName }}</h3>
         </Link>
 
-        <div class="bg-[#303030] h-12 w-12 rounded-lg flex items-center justify-center">
+        <div class="h-12 w-12 button">
           <a href="/logout">
             <img src="/assets/imgs/logout.png" class="h-8 w-8" alt="Ícone de log out" />
           </a>
@@ -23,7 +23,7 @@
         <button
           v-if="freelancer.id === props.project.user_id"
           @click="copyProjectLink"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded-md"
+          class="flex w-fit rounded-md border border-blue-600 bg-gradient-to-b from-blue-900 to-blue-600 p-2 tracking-tight text-white ring-[1.5px] ring-blue-950 ring-offset-0 transition-all duration-500 hover:border-blue-600 hover:from-blue-800 hover:to-blue-600"
         >
           <img src="/assets/imgs/link-externo.png" class="h-4 w-4" />
         </button>

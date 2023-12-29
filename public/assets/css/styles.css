@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
+.up {
+    box-shadow: 0px 2px 1px #7ba0ff inset;
+  }
+
+  .up:hover {
+    box-shadow: 0px 0px 1px #7ba0ff inset;
+    transition: ease-out 0.3s;
+  }
+
+  .up-active {
+    box-shadow: 0px 0px 1px #7ba0ff inset;
+  }
+
+  .down {
+    box-shadow: 0px -2px 1px #1344C3 inset;
+  }
+
+  .down:hover {
+    box-shadow: 0px 0px 1px #1344C3 inset;
+    transition: ease-out 0.3s;
+  }
+
 .font-family-righteous {
   font-family: "Righteous", sans-serif;
 }

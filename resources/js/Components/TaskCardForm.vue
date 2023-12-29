@@ -28,7 +28,7 @@ function submit() {
 </script>
 
 <template>
-  <div class="bg-[#eaeaec] mt-[20%] p-3 rounded-md relative mx-auto w-[80vw]">
+  <div class="bg-[#232323] mt-[20%] p-3 rounded-md relative mx-auto w-[80vw]">
     <form
       @submit.prevent="submit"
       method="post"
@@ -36,20 +36,20 @@ function submit() {
       id="add_taskCardModal"
     >
       <div>
-        <label for="task_title" class="block text-xs text-black">Titulo</label>
+        <label for="task_title" class="block text-xs mt-1">Titulo</label>
         <input
           type="text"
           name="task_title"
           v-model="form.task_title"
           placeholder="Digite o título do seu card aqui"
-          class="w-full text-black border-2 border-[#D9D9D9] rounded-sm outline-none my-1"
+          class="w-full border-1 border-zinc-700 bg-[#313131] rounded-lg outline-none my-1"
         />
       </div>
 
       <div>
-        <label for="task_content" class="block text-xs text-black">Conteúdo</label>
+        <label for="task_content" class="block text-xs mt-1">Conteúdo</label>
         <textarea
-          class="w-full h-[50vh] p-2 border-2 border-[#D9D9D9] rounded-sm bg-white outline-none text-black"
+          class="h-[50vh] w-full border-1 border-zinc-700 bg-[#313131] rounded-lg outline-none my-1"
           name="task_content"
           placeholder="Descreva detalhadamente o conteúdo do seu task card utilizando markdown (listas, imagens, etc)..."
           v-model="form.task_content"
@@ -57,9 +57,13 @@ function submit() {
       </div>
 
       <div>
-        <label for="task_tag" class="block text-xs text-black">Tag</label>
-        <select name="task_tag" v-model="form.tag" class="w-full rounded-md text-black">
-          <option disabled selected>Selecione uma tag</option>
+        <label for="task_tag" class="block text-xs">Tag</label>
+        <select
+          name="task_tag"
+          v-model="form.tag"
+          class="w-full border-1 border-zinc-700 bg-[#313131] rounded-lg outline-none my-1 active:none"
+        >
+          <option selected>Selecione uma tag</option>
           <option v-for="tag in tags" :key="index" :value="tag.tag_name">
             {{ tag.tag_name }}
           </option>
@@ -68,7 +72,7 @@ function submit() {
 
       <button
         type="submit"
-        class="rounded-sm bg-[#2957cd] border-2 border-[#d9d9d9] text-white p-2 w-full my-2 font-bold hover:bg-[#3768E5]"
+        class="button w-fit p-12 py-1 hover:from-blue-800 hover:to-blue-600 hover:border-blue-600 my-2"
         @submit="showModal()"
       >
         criar tarefa

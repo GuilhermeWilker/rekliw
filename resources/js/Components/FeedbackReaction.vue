@@ -1,9 +1,9 @@
 <template>
   <div>
     <button
-      class="reaction-button p-1 px-5 text-black hover:bg-blue-500 hover:text-white"
+      class="up w-fit rounded-xl border-2 border-blue-800 bg-blue-600 hover:bg-blue-700 px-4 py-1 text-md font-medium text-white"
       :class="{
-        'bg-[#2957CD] text-white': isActive,
+        'up-active bg-blue-700': isActive,
       }"
       @click="($event) => $emit('feedback', reactionType)"
     >

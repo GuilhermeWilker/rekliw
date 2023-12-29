@@ -25,7 +25,7 @@ const submit = () => {
     <div class="flex items-center w-full overflow-x-auto gap-5 py-2 mb-1">
       <button
         v-if="$page.props.auth.user.id === $page.props.project.user_id"
-        class="text-sm text-white font-medium hover:bg-blue-500 rounded-md border-2 border-white text-center min-w-[100px] p-2"
+        class="button p-1 px-3"
         @click="showModal"
       >
         adicionar +
@@ -41,21 +41,21 @@ const submit = () => {
       >
         &times;
       </span>
-      <div class="bg-[#292929] mt-[50%] p-3 w-80 rounded-md relative mx-auto">
+      <div class="bg-[#232323] mt-[50%] p-3 w-80 rounded-md relative mx-auto">
         <form action="/tag" @submit.prevent="submit" class="add_tagsForm">
+          <legend class="text-sm my-1 pl-1 text-neutral-400">Digite o nome da tag</legend>
           <input type="hidden" name="project_id" :value="$page.props.project.id" />
 
           <input
             type="text"
             name="tag_name"
             v-model="form.tag_name"
-            class="block w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none"
-            placeholder="Tagname"
+            class="block w-full rounded-md p-2 border-1 border-neutral-500 bg-neutral-800 outline-none"
           />
 
           <button
             type="submit"
-            class="rounded-sm bg-[#2957cd] border-2 border-[#d9d9d9] text-white p-2 w-full my-2 font-bold hover:bg-[#3768E5]"
+            class="button w-fit p-12 py-1 hover:from-blue-800 hover:to-blue-600 hover:border-blue-600 my-2"
             @click="showModal"
           >
             criar tag

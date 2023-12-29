@@ -1,14 +1,21 @@
 <template>
   <section>
-    <div class="flex items-center gap-[.2px]" v-if="!$page.props.auth.user">
-      <textarea
-        class="w-full h-[100%] bg-[#292929] text-sm p-3 rounded-md shadow-lg text-white resize-y"
-        placeholder="Adicionar comentário..."
-        v-model="commentContent"
-      >
-      </textarea>
+    <div class="flex items-center gap-2" v-if="!$page.props.auth.user">
+      <div class="w-full h-14 border-b-[1px] border-b-neutral-700 bg-neutral-800">
+        <textarea
+          class="w-full h-full bg-neutral-800 border-none text-md p-3 rounded-md text-white resize-none"
+          placeholder="Adicionar comentário..."
+          v-model="commentContent"
+        >
+        </textarea>
+      </div>
 
-      <button class="p-1 text-4xl" @click="comment">➡️</button>
+      <button
+        class="button p-1 px-2 text-md hover:from-blue-800 hover:to-blue-600 hover:border-blue-600"
+        @click="comment"
+      >
+        enviar
+      </button>
     </div>
 
     <div class="flex items-center gap-2 my-3">
