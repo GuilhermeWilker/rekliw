@@ -14,6 +14,7 @@ const showModal = () => {
 <template>
   <div class="py-3">
     <div
+      v-if="$page.props.auth.user.id === $page.props.project.user_id"
       class="card-add text-black relative drop-shadow-md hover:z-10 flex items-center justify-center"
       @click="showModal"
     >

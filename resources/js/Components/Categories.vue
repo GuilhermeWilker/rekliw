@@ -4,6 +4,8 @@ import { computed } from "vue";
 import { usePage } from "@inertiajs/vue3";
 
 const tasks = usePage().props.tasks;
+const x = usePage().props.auth.user;
+console.log(x);
 
 const tasksCategories = computed(() => {
   const categorized = {};

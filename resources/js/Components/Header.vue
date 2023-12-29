@@ -21,6 +21,7 @@
         <p class="text-md font-family-righteous">Projeto: {{ props.project.title }}</p>
 
         <button
+          v-if="freelancer.id === props.project.user_id"
           @click="copyProjectLink"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded-md"
         >
@@ -30,7 +31,7 @@
     </div>
 
     <div v-else class="w-36">
-      <h3 class="text-6xl font-family-righteous border-b-2">
+      <h3 @click="redirectBack" class="text-6xl font-family-righteous border-b-2">
         R<span class="text-blue-500">'</span>ekliw
       </h3>
 
@@ -45,6 +46,7 @@
 import { usePage } from "@inertiajs/vue3";
 import { computed } from "vue";
 import { __date } from "@/Composables/useDateFormat.js";
+import { redirectBack } from "@/Composables/redirectBack.js";
 
 const props = defineProps({
   project: Object,

@@ -12,7 +12,6 @@
         </div>
       </div>
 
-
       <!-- Categorias das Tasks -->
       <Categories />
     </section>
