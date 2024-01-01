@@ -24,7 +24,7 @@ import ModalAddTags from "../../Components/ModalAddTags.vue";
 import Categories from "@/Components/Categories.vue";
 import AddTaskCard from "../../Components/AddTaskCard.vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { usePage } from "@inertiajs/vue3";
+import { usePage, Head } from "@inertiajs/vue3";
 
 const { project } = usePage().props;
 </script>

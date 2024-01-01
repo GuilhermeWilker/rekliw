@@ -58,23 +58,8 @@ const fullName = computed(() => {
   return freelancer ? `${freelancer.first_name} ${freelancer.last_name}` : "";
 });
 
-const copyProjectLink = () => {
-  const link = `${window.location.origin}/project/${props.project.link}`;
-  console.log(link);
-  if (!navigator.clipboard || !navigator.clipboard.writeText) {
-    // Verifica se navigator.clipboard não está disponível ou se o método writeText não é suportado
-    alert("A funcionalidade de cópia não é suportada neste navegador.");
-    return;
-  }
-
-  navigator.clipboard
-    .writeText(link)
-    .then(() => {
-      alert("Link do projeto copiado para a área de transferência!");
-    })
-    .catch((err) => {
-      console.error(err);
-      alert("Erro ao copiar link do projeto.");
-    });
+const copyProjectLink = (e) => {
+  const link = `${window.location.href}`;
+  navigator.clipboard.writeText(link);
 };
 </script>

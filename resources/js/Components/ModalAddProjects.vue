@@ -21,11 +21,7 @@ const submit = () => {
 
 <template>
   <div>
-    <button
-      class="p-2 text-center text-sm border-2 border-white rounded-md w-1/2 bg-[#363636] ml-5 mb-4"
-      id="add_projectButton"
-      @click="showModal"
-    >
+    <button class="ml-5 mb-4 button p-2 px-3" id="add_projectButton" @click="showModal">
       Novo projeto 📑
     </button>
 
@@ -34,27 +30,26 @@ const submit = () => {
       class="modal"
       :style="{ display: isModalOpen ? 'block' : 'none' }"
     >
+      <span
+        class="text-gray-200 text-3xl font-bold float-right cursor-pointer"
+        @click="showModal"
+      >
+        &times;
+      </span>
       <div class="bg-[#292929] mt-[50%] p-3 w-80 rounded-md relative mx-auto">
-        <span
-          class="text-gray-200 text-3xl font-bold float-right cursor-pointer"
-          @click="showModal"
-        >
-          &times;
-        </span>
         <form action="/project" @submit.prevent="submit" class="add_tagsForm">
+          <label for="title" class="block text-xs text-white my-2 font-medium">
+            Digite o título do seu projeto</label
+          >
           <input
             type="text"
             name="title"
             v-model="form.title"
-            class="block w-full p-2 border-2 border-[#D9D9D9] rounded-sm bg-[#363636] outline-none"
-            placeholder="Título do seu projeto"
+            class="w-full border-1 border-zinc-700 bg-[#313131] rounded-lg outline-none my-1"
+            placeholder="Ex.: projeto 01"
           />
 
-          <button
-            type="submit"
-            class="rounded-sm bg-[#2957cd] border-2 border-[#d9d9d9] text-white p-2 w-full my-2 font-bold hover:bg-[#3768E5]"
-            @click="showModal"
-          >
+          <button type="submit" class="button p-1 px-14 my-2" @click="showModal">
             criar projeto
           </button>
         </form>
