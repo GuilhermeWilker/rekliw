@@ -2,14 +2,14 @@
   <small
     v-if="feedback !== 'like' && feedback !== 'dislike'"
     :class="getFeedbackClass(feedback)"
-    class="text-white p-2 px-3 rounded-md text-sm absolute right-3 top-[-1.3em]"
+    class="text-white p-2 px-3 rounded-md text-sm absolute right-3 top-[-1.7em]"
   >
     {{ getFeedbackText(feedback) }}
   </small>
   <small
     v-else
     :class="getFeedbackClass(feedback)"
-    class="text-white p-2 px-3 rounded-md text-sm absolute right-3 top-[-1.3em]"
+    class="text-white p-2 px-3 rounded-md text-sm absolute right-3 top-[-1.7em]"
   >
     {{ getFeedbackText(feedback) }}
   </small>

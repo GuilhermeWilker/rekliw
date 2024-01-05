@@ -1,11 +1,6 @@
 <script setup>
 import { ref } from "vue";
 
-const sliderValue = ref(25);
-const udpateSliderValue = (e) => {
-  sliderValue.value = e.target.value;
-};
-
 defineProps({
   tasks: Array,
 });
@@ -30,12 +25,11 @@ defineProps({
       id="myRange"
       min="0"
       max="100"
-      :value="sliderValue"
+      :value="task.task_progress"
       step="25"
       disabled
-      @input="udpateSliderValue"
     />
-    <span class="slider-value" id="sliderValue">{{ sliderValue }}%</span>
+    <span class="slider-value" id="sliderValue">{{ task.task_progress }}%</span>
   </div>
 </template>
 

@@ -15,6 +15,7 @@ return new class() extends Migration {
             $table->foreignId('project_id')->constrained('projects');
             $table->string('task_title');
             $table->text('task_content');
+            $table->integer('task_progress')->default(0);
             $table->string('reaction')->nullable();
             $table->string('tag');
             $table->timestamps();

@@ -51,4 +51,14 @@ class TaskController extends Controller
             ]);
         }
     }
+
+    public function progress(Request $request, Task $task)
+    {
+        $progress = $request->input('progress');
+
+        Task::where('id', $task->id)
+            ->update([
+                'task_progress' => $progress,
+            ]);
+    }
 }

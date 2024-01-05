@@ -14,11 +14,15 @@
               id="myRange"
               min="0"
               max="100"
-              :value="sliderValue"
+              :value="task.task_progress"
               step="25"
               @input="udpateSliderValue"
+              class="z-10"
             />
-            <p class="text-blue-500 text-sm">Progresso da tarefa {{ sliderValue }}%</p>
+
+            <p class="text-blue-500 text-sm relative top-4 right-4">
+              {{ task.task_progress }}%
+            </p>
           </div>
 
           <div class="flex items-center gap-2">
@@ -74,8 +78,6 @@
         <Commments />
       </article>
 
-      <!-- class="w-full p-3 my-4 rounded-lg bg-[#2957CD] text-center font-medium"-->
-
       <button
         @click="redirectBack"
         class="button py-2 px-28 my-3 hover:from-blue-800 hover:to-blue-600 hover:border-blue-600"
@@ -98,13 +100,22 @@ import { redirectBack } from "@/Composables/redirectBack.js";
 import { ref } from "vue";
 
 defineProps({
-  task: Object,
   reaction: String,
 });
+
+const task = usePage().props.task;
 
 const sliderValue = ref(0);
 const udpateSliderValue = (e) => {
   sliderValue.value = e.target.value;
+
+  router.put(`/progress/${task.id}`, {
+    progress: sliderValue.value,
+  });
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 100);
 };
 
 const reaction = usePage().props.task.reaction;
@@ -123,7 +134,7 @@ const addReaction = (reactionType) => {
 input[type="range"] {
   height: 55px;
   appearance: none;
-  width: 12em;
+  width: 9em;
 
   background-color: transparent;
 
@@ -145,7 +156,7 @@ input[type="range"] {
 
   &::-webkit-slider-runnable-track {
     width: 100%;
-    height: 6px;
+    height: 5px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000;
     background: #3071a9;
@@ -156,13 +167,13 @@ input[type="range"] {
   &::-webkit-slider-thumb {
     box-shadow: 1px 1px 1px #000000;
     border: 1px solid #000000;
-    height: 35px;
+    height: 23px;
     width: 6px;
     border-radius: 50px;
     background: #ffffff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -16px;
+    margin-top: -9px;
   }
 
   &::-ms-thumb {
@@ -190,7 +201,7 @@ input[type="range"] {
   &::-moz-range-thumb {
     box-shadow: 1px 1px 1px #000000;
     border: 1px solid #000000;
-    height: 47px;
+    height: 23px;
     width: 6px;
     border-radius: 50px;
     background: #ffffff;
