@@ -7,8 +7,22 @@
       <section>
         <!-- Overview -->
         <article class="w-full h-[100%] rounded-md p-8 shadow-lg bg-neutral-100 relative">
+          <!-- Slider de Progresso -->
+          <div class="absolute -top-1 left-8 text-blue-500 flex items-center gap-5">
+            <input
+              type="range"
+              id="myRange"
+              min="0"
+              max="100"
+              :value="sliderValue"
+              step="25"
+              @input="udpateSliderValue"
+            />
+            <p class="text-blue-500 text-sm">Progresso da tarefa {{ sliderValue }}%</p>
+          </div>
+
           <div class="flex items-center gap-2">
-            <h2 class="font-family-righteous my-2 text-xl text-gray-700">
+            <h2 class="font-family-righteous my-2 mt-5 text-xl text-gray-700">
               {{ task.task_title }}
             </h2>
           </div>
@@ -19,10 +33,11 @@
           <div
             class="prose p-3 h-full font-medium text-justify text-gray-800"
             v-html="task.task_content"
-          ></div>
+          />
 
+          <!-- TagStatus -->
           <div class="flex justify-between items-center">
-            <small class="text-gray-400 block my-2">
+            <small class="text-gray-400 block my-2" v-if="!$page.props.auth.user">
               Publicado em <span class="font-bold">{{ __date(task.created_at) }}</span>
             </small>
 
@@ -80,11 +95,17 @@ import FeedbackReaction from "@/Components/FeedbackReaction.vue";
 import { router, usePage } from "@inertiajs/vue3";
 import { __date } from "@/Composables/useDateFormat.js";
 import { redirectBack } from "@/Composables/redirectBack.js";
+import { ref } from "vue";
 
 defineProps({
   task: Object,
   reaction: String,
 });
+
+const sliderValue = ref(0);
+const udpateSliderValue = (e) => {
+  sliderValue.value = e.target.value;
+};
 
 const reaction = usePage().props.task.reaction;
 
@@ -97,3 +118,107 @@ const addReaction = (reactionType) => {
   window.location.reload();
 };
 </script>
+
+<style scoped>
+input[type="range"] {
+  height: 55px;
+  appearance: none;
+  width: 12em;
+
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-runnable-track {
+      background: #3071a9;
+    }
+
+    &::-ms-fill-lower {
+      background: #3071a9;
+    }
+
+    &::-ms-fill-upper {
+      background: #3071a9;
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000;
+    background: #3071a9;
+    border-radius: 50px;
+    border: 1px solid #000000;
+  }
+
+  &::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 35px;
+    width: 6px;
+    border-radius: 50px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -16px;
+  }
+
+  &::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 47px;
+    width: 6px;
+    border-radius: 50px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+
+    box-shadow: 1px 1px 1px #000000;
+    background: #3071a9;
+    border-radius: 50px;
+    border: 1px solid #000000;
+  }
+
+  &::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 47px;
+    width: 6px;
+    border-radius: 50px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: #3071a9;
+    border: 1px solid #000000;
+    border-radius: 100px;
+    box-shadow: 1px 1px 1px #000000;
+  }
+
+  &:-ms-fill-upper {
+    background: #3071a9;
+    border: 1px solid #000000;
+    border-radius: 100px;
+    box-shadow: 1px 1px 1px #000000;
+  }
+}
+</style>
